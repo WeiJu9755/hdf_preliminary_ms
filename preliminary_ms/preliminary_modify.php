@@ -65,18 +65,23 @@ function SaveValue($aFormValues){
 		$mDB = "";
 		$mDB = new MywebDB();
 
-		$Qry="UPDATE CaseManagement set
-				 status1			= '$status1'
-				,status2			= '$status2'
-				,Handler			= '$Handler'
-				,buildings			= '$buildings'
-				,first_review_date	= '$first_review_date'
-				,estimated_return_date	= '$estimated_return_date'
-				,preliminary_status	= '$preliminary_status'
-				,remark				= '$remark'
-				,makeby2			= '$memberID'
-				,last_modify2		= now()
-				where auto_seq = '$auto_seq'";
+		$Qry="UPDATE CaseManagement 
+				SET
+					status1              = '$status1',
+					status2              = '$status2',
+					Handler              = '$Handler',
+					buildings            = '$buildings',
+					first_review_date    = '$first_review_date',
+					estimated_return_date= '$estimated_return_date',
+					preliminary_status   = '$preliminary_status',
+					remark               = '$remark',
+					quotation_return_date= CASE 
+											WHEN '$status2' = '已回簽' THEN NOW()
+											ELSE quotation_return_date
+											END,
+					makeby2              = '$memberID',
+					last_modify2         = NOW()
+				WHERE auto_seq = '$auto_seq';";
 				
 		$mDB->query($Qry);
         $mDB->remove();
