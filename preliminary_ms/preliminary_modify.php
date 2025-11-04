@@ -368,7 +368,7 @@ $style_css
 						</div>
 					</div>
 					<div>
-						<div class="field_div1">建物棟數:</div> 
+						<div class="field_div1">評估建物棟數:</div> 
 						<div class="field_div2">
 							<input type="text" class="inputtext" id="buildings" name="buildings" size="20" maxlength="160" style="width:100%;max-width:450px;" value="$buildings" onchange="setEdit();"/>
 						</div> 

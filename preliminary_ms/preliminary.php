@@ -282,7 +282,7 @@ $list_view=<<<EOT
 				<th class="text-center text-nowrap" style="width:6%;padding: 10px;background-color: #CBF3FC;">案件編號</th>
 				<th class="text-center text-nowrap" style="width:12%;padding: 10px;background-color: #CBF3FC;">工程名稱</th>
 				<th class="text-center text-nowrap" style="width:6%;padding: 10px;background-color: #CBF3FC;">經辦人員</th>
-				<th class="text-center text-nowrap" style="width:16%;padding: 10px;background-color: #CBF3FC;">建物棟數</th>
+				<th class="text-center text-nowrap" style="width:16%;padding: 10px;background-color: #CBF3FC;">評估建物棟數</th>
 				<th class="text-center text-nowrap" style="width:6%;padding: 10px;background-color: #CBF3FC;">初評發送日期</th>
 				<th class="text-center text-nowrap" style="width:6%;padding: 10px;background-color: #CBF3FC;">預計回饋日期</th>
 				<th class="text-center text-nowrap" style="width:6%;padding: 10px;background-color: #CBF3FC;">初評狀態</th>
@@ -394,7 +394,7 @@ $list_view
 
 				$('td:eq(5)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center" style="height:auto;min-height:32px;">'+Handler_name+Handler+'</div>' );
 
-				//建物棟數
+				//評估建物棟數
 				var buildings = "";
 				if (aData[8] != null && aData[8] != "")
 					buildings = aData[8];
