@@ -80,7 +80,8 @@ function SaveValue($aFormValues){
 											ELSE quotation_return_date
 											END,
 					makeby2              = '$memberID',
-					last_modify2         = NOW()
+					last_modify2         = NOW(),
+					update_count2		= update_count2 + 1
 				WHERE auto_seq = '$auto_seq';";
 				
 		$mDB->query($Qry);

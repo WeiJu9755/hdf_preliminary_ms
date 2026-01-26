@@ -33,7 +33,7 @@
 //			,'a.case_type','a.ConfirmSending','a.ConfirmSending_datetime');
 
 	$aColumns = array( 'a.status1','a.status2','a.region','a.case_id','a.construction_id','b.engineering_name','a.Handler','e.employee_name','a.buildings','a.first_review_date','a.estimated_return_date'
-		,'a.preliminary_status','a.remark','a.makeby2','a.last_modify2','a.auto_seq','f.member_name','a.confirm2');
+		,'a.preliminary_status','a.remark','a.makeby2','a.last_modify2','a.auto_seq','f.member_name','a.confirm2','a.update_count2');
 			
 	/* Indexed column (used for fast and accurate table cardinality) */
 	$sIndexColumn = "auto_seq";
