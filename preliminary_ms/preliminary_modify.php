@@ -83,8 +83,19 @@ function SaveValue($aFormValues){
 					last_modify2         = NOW(),
 					update_count2		= update_count2 + 1
 				WHERE auto_seq = '$auto_seq';";
+				$mDB->query($Qry);
+
+		if($status2 = '已回簽' || $status2 = '已報價'){
+			$Qry="UPDATE CaseManagement 
+				SET
+					makeby3              = '$memberID',
+					last_modify3         = NOW(),
+					update_count3		= update_count3 + 1
+				WHERE auto_seq = '$auto_seq';";
+				$mDB->query($Qry);
+		}
 				
-		$mDB->query($Qry);
+		
         $mDB->remove();
 
 		
