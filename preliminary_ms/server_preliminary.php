@@ -33,7 +33,7 @@
 //			,'a.case_type','a.ConfirmSending','a.ConfirmSending_datetime');
 
 	$aColumns = array( 'a.status1','a.status2','a.region','a.case_id','a.construction_id','b.engineering_name','a.Handler','e.employee_name','a.buildings','a.first_review_date','a.estimated_return_date'
-		,'a.preliminary_status','a.remark','a.makeby2','a.last_modify2','a.auto_seq','f.member_name','a.confirm2','a.update_count2');
+		,'a.preliminary_status','a.remark','a.makeby2','a.last_modify2','a.auto_seq','f.member_name','a.confirm2','a.update_count2','builder_name','c.builder_name','d.contractor_name');
 			
 	/* Indexed column (used for fast and accurate table cardinality) */
 	$sIndexColumn = "auto_seq";
@@ -199,6 +199,8 @@
 		FROM   $sTable a
 		LEFT JOIN construction b ON b.construction_id = a.construction_id
 		LEFT JOIN employee e ON e.employee_id = a.Handler
+		LEFT JOIN builder c ON c.builder_id = a.builder_id
+		LEFT JOIN contractor d ON d.contractor_id = a.contractor_id
 		LEFT JOIN memberinfo.member f on f.member_no = a.makeby2
 		$sWhere
 		$sOrder

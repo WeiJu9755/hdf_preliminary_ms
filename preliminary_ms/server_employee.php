@@ -64,37 +64,9 @@
 	}
 	
 	
-	/*
-	 * Ordering
-	 */
+
 	$sOrder = "ORDER BY a.employee_id ";
-	/*
-	if ( isset( $_GET['iSortCol_0'] ) )
-	{
-		$sOrder = "ORDER BY  ";
-		for ( $i=0 ; $i<intval( $_GET['iSortingCols'] ) ; $i++ )
-		{
-			if ( $_GET[ 'bSortable_'.intval($_GET['iSortCol_'.$i]) ] == "true" )
-			{
-				$sOrder .= $aColumns[ intval( $_GET['iSortCol_'.$i] ) ]."
-				 	".mysql_real_escape_string( $_GET['sSortDir_'.$i] ) .", ";
-			}
-		}
-		
-		$sOrder = substr_replace( $sOrder, "", -2 );
-		if ( $sOrder == "ORDER BY" )
-		{
-			$sOrder = "";
-		}
-	}
-	*/
-	
-	/* 
-	 * Filtering
-	 * NOTE this does not match the built-in DataTables filtering which does it
-	 * word by word on any field. It's possible to do here, but concerned about efficiency
-	 * on very large tables, and MySQL's regex functionality is very limited
-	 */
+
 	$sWhere = "";
 	if ( $_GET['sSearch'] != "" )
 	{
@@ -124,43 +96,13 @@
 		}
 	}
 	
-	/*
-	 * SQL queries
-	 * Get data to display
-	 */
-	 
-	/* 
-	$mc = $sc = "";
 
-	if (isset($_GET['mc']))
-		$mc = $_GET['mc'];
-	if (isset($_GET['sc']))
-		$sc = $_GET['sc'];	 
-	 
-	$filter_str = "";
-
-	if (($mc<>"") && ($sc<>"")) {
-		$filter_str = " and a.main_class = '$mc' and a.small_class = '$sc' ";
-	} else if (($mc<>"") && ($sc=="")) {
-		if ($mc=="其他未分類") {
-			$filter_str = " and (a.main_class = '' or isnull(a.main_class)) and (a.small_class = '' or isnull(a.small_class))";
-		} else {
-			$filter_str = " and a.main_class = '$mc' ";
-		}
-	}
-	 
-	 
-	if ($sWhere=="")
-		$sWhere = "WHERE (a.web_id = '$web_id' ".$filter_str.") ";
-	else
-		$sWhere .= " and (a.web_id = '$web_id' ".$filter_str.") ";
-	*/
 	
 	
 	if ($sWhere=="")
-		$sWhere = "WHERE (department = '設計研發部') ";
+		$sWhere = "WHERE (department = '設計研發部') AND (a.resignation_date IS NULL OR a.resignation_date = '')";
 	else
-		$sWhere .= " and (department = '設計研發部') ";
+		$sWhere .= " and (department = '設計研發部') AND (a.resignation_date IS NULL OR a.resignation_date = '')";
 	
 
 

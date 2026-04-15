@@ -280,6 +280,8 @@ $list_view=<<<EOT
 				<th class="text-center text-nowrap" style="width:5%;padding: 10px;background-color: #CBF3FC;">狀態(2)</th>
 				<th class="text-center text-nowrap" style="width:12%;padding: 10px;background-color: #CBF3FC;">工程名稱</th>
 				<th class="text-center text-nowrap" style="width:4%;padding: 10px;background-color: #CBF3FC;">區域</th>
+				<th class="text-center text-nowrap" style="width:4%;padding: 10px;background-color: #CBF3FC;">上包-建商名稱</th>
+				<th class="text-center text-nowrap" style="width:4%;padding: 10px;background-color: #CBF3FC;">上包-營造廠名稱</th>
 				<th class="text-center text-nowrap" style="width:6%;padding: 10px;background-color: #CBF3FC;">案件編號</th>
 				<th class="text-center text-nowrap" style="width:6%;padding: 10px;background-color: #CBF3FC;">經辦人員</th>
 				<th class="text-center text-nowrap" style="width:16%;padding: 10px;background-color: #CBF3FC;">評估建物棟數</th>
@@ -431,12 +433,26 @@ $list_view
 
 				$('td:eq(3)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center size12 text-nowrap" style="height:auto;min-height:32px;">'+region+'</div>' );
 
+				//上包-建商名稱
+				var builder_name = "";
+				if (aData[20] != null && aData[20] != "")
+					builder_name = aData[20];
+
+				$('td:eq(4)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center size12 text-nowrap" style="height:auto;min-height:32px;">'+builder_name+'</div>' );
+
+				//上包-營造廠名稱
+				var contractor_name = "";
+				if (aData[21] != null && aData[21] != "")
+					contractor_name = aData[21];
+
+				$('td:eq(5)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center size12 text-nowrap" style="height:auto;min-height:32px;">'+contractor_name+'</div>' );
+
 				//案件編號
 				var case_id = "";
 				if (aData[3] != null && aData[3] != "")
 					case_id = aData[3];
 
-				$('td:eq(4)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center size12 weight text-nowrap" style="height:auto;min-height:32px;">'+case_id+'</div>' );
+				$('td:eq(6)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center size12 weight text-nowrap" style="height:auto;min-height:32px;">'+case_id+'</div>' );
 
 
 				//經辦人員
@@ -448,42 +464,42 @@ $list_view
 				if (aData[6] != null && aData[6] != "")
 					Handler = '<span class="size09">'+aData[6]+'</span>';
 
-				$('td:eq(5)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center" style="height:auto;min-height:32px;">'+Handler_name+Handler+'</div>' );
+				$('td:eq(7)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center" style="height:auto;min-height:32px;">'+Handler_name+Handler+'</div>' );
 
 				//評估建物棟數
 				var buildings = "";
 				if (aData[8] != null && aData[8] != "")
 					buildings = aData[8];
 
-				$('td:eq(6)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center size12" style="height:auto;min-height:32px;">'+buildings+'</div>' );
+				$('td:eq(8)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center size12" style="height:auto;min-height:32px;">'+buildings+'</div>' );
 
 				//初評發送日期
 				var first_review_date = "";
 				if (aData[9] != null && aData[9] != "" && aData[9] != "0000-00-00")
 					first_review_date = aData[9];
 
-				$('td:eq(7)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center size12 text-nowrap" style="height:auto;min-height:32px;">'+first_review_date+'</div>' );
+				$('td:eq(9)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center size12 text-nowrap" style="height:auto;min-height:32px;">'+first_review_date+'</div>' );
 
 				//預計回饋日期
 				var estimated_return_date = "";
 				if (aData[10] != null && aData[10] != "" && aData[10] != "0000-00-00")
 					estimated_return_date = aData[10];
 
-				$('td:eq(8)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center size12 text-nowrap" style="height:auto;min-height:32px;">'+estimated_return_date+'</div>' );
+				$('td:eq(10)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center size12 text-nowrap" style="height:auto;min-height:32px;">'+estimated_return_date+'</div>' );
 
 				//初評狀態
 				var preliminary_status = "";
 				if (aData[11] != null && aData[11] != "")
 					preliminary_status = aData[11];
 
-				$('td:eq(9)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center size12" style="height:auto;min-height:32px;">'+preliminary_status+'</div>' );
+				$('td:eq(11)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center size12" style="height:auto;min-height:32px;">'+preliminary_status+'</div>' );
 
 				//備註
 				var remark = "";
 				if (aData[12] != null && aData[12] != "")
 					remark = aData[12];
 
-				$('td:eq(10)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center size12" style="height:auto;min-height:32px;">'+remark+'</div>' );
+				$('td:eq(12)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center size12" style="height:auto;min-height:32px;">'+remark+'</div>' );
 
 				/*
 				if ( aData[17] == "Y" ) {
@@ -493,7 +509,7 @@ $list_view
 					var mcheck = "xajax_confirm("+aData[15]+",'Y','$memberID');";
 					var img_check = '<a href="javascript:void(0);" onclick="'+mcheck+'"><i class="bi bi-circle size16 gray"></i></a>';
 				}
-				$('td:eq(11)', nRow).html( '<div class="text-center">'+img_check+'</div>' );
+				$('td:eq(13)', nRow).html( '<div class="text-center">'+img_check+'</div>' );
 				*/
 
 				var url1 = "openfancybox_edit('/index.php?ch=edit&auto_seq="+aData[15]+"&fm=$fm',800,'96%','');";
@@ -511,7 +527,7 @@ $list_view
 						+'</div>';
 				}
 
-				$('td:eq(11)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center" style="height:auto;min-height:32px;">'+show_btn+'</div>' );
+				$('td:eq(13)', nRow).html( '<div class="d-flex justify-content-center align-items-center text-center" style="height:auto;min-height:32px;">'+show_btn+'</div>' );
 
 				//最後修改
 				var last_modify = (aData[14] != null && aData[14] != "") 
@@ -527,7 +543,7 @@ $list_view
 
 				if ((last_modify == null || last_modify == "") && (member_name == null || member_name == "")) {
 				
-				$('td:eq(12)', nRow).html('<div style="height:auto;min-height:32px;"></div>');
+				$('td:eq(14)', nRow).html('<div style="height:auto;min-height:32px;"></div>');
 
 				} else {
 
@@ -539,7 +555,7 @@ $list_view
 										'title="累計修改次數：' + update_count_val + '次">' + 
 										update_count_val + '</span>';
 
-				$('td:eq(12)', nRow).html( 
+				$('td:eq(14)', nRow).html( 
 					'<div class="text-center" style="height:auto;min-height:32px;">' + 
 						last_modify + 
 						'<div>' + member_name + update_count_html + '</div>' + 
